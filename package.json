@@ -1,0 +1,31 @@
+{
+  "name": "cache-testing-ecommerce",
+  "version": "1.0.0",
+  "description": "Pengujian caching sistem e-commerce: Product, Cart, Inventory, Flash Sale, Session, Price",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --runInBand",
+    "test:product": "jest tests/product-cache.test.js --verbose --runInBand",
+    "test:cart": "jest tests/cart-cache.test.js --verbose --runInBand",
+    "test:inventory": "jest tests/inventory-cache.test.js --verbose --runInBand",
+    "test:flashsale": "jest tests/flash-sale.test.js --verbose --runInBand",
+    "test:session": "jest tests/session-cache.test.js --verbose --runInBand",
+    "test:price": "jest tests/price-cache.test.js --verbose --runInBand",
+    "test:all": "jest tests/*.test.js --verbose --runInBand",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "setup": "npm install && npm run docker:up"
+  },
+  "dependencies": {
+    "ioredis": "^5.4.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.12"
+  },
+  "jest": {
+    "testTimeout": 30000,
+    "forceExit": true,
+    "detectOpenHandles": true
+  }
+}
